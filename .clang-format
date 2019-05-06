@@ -1,0 +1,25 @@
+BasedOnStyle: Google
+AccessModifierOffset: '-4'
+AlignAfterOpenBracket: DontAlign
+AlignTrailingComments: true
+AllowShortBlocksOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+BreakBeforeBraces: Linux
+BreakConstructorInitializers: BeforeComma
+ColumnLimit: '120'
+ConstructorInitializerIndentWidth: '4'
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+Cpp11BracedListStyle: true
+AllowShortCaseLabelsOnASingleLine: true
+IndentWidth: '4'
+DerivePointerAlignment: false
+PointerAlignment: Left
+TabWidth: '4'
+UseTab: Never
+FixNamespaceComments: true
+NamespaceIndentation: None
+MaxEmptyLinesToKeep: 2
+CompactNamespaces: false
+SortIncludes: false
+
