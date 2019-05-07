@@ -874,8 +874,11 @@ static void sleep_mode_enter(void)
     APP_ERROR_CHECK(err_code);
 
     // Go to system-off mode (this function will not return; wakeup will cause a reset).
-    err_code = sd_power_system_off();
-    APP_ERROR_CHECK(err_code);
+    err_code = sd_power_system_off();  // TODO: Check why this occasionally fails with error code 0x2006
+    if (err_code != NRF_SUCCESS) {
+        NRF_LOG_INFO("power off failed");
+    }
+    // APP_ERROR_CHECK(err_code);
 }
 
 
@@ -1235,8 +1238,12 @@ static void report_send(uint16_t value)
 
     err_code = ble_hids_inp_rep_send(&m_hids, INPUT_REP_HUM_INDEX, INPUT_REP_HUM_LEN, buffer, m_conn_handle);
 
+    // NOTE returns NRF_ERROR_FORBIDDEN before this is seen in log
+    // <info> peer_manager_handler: Connection secured: role: Peripheral, conn_handle: 0, procedure: Encryption
+
     if ((err_code != NRF_SUCCESS) && (err_code != NRF_ERROR_INVALID_STATE) && (err_code != NRF_ERROR_RESOURCES) &&
-        (err_code != NRF_ERROR_BUSY) && (err_code != BLE_ERROR_GATTS_SYS_ATTR_MISSING)) {
+        (err_code != NRF_ERROR_BUSY) && (err_code != BLE_ERROR_GATTS_SYS_ATTR_MISSING) &&
+        (err_code != NRF_ERROR_FORBIDDEN)) {
         APP_ERROR_HANDLER(err_code);
     }
     if (err_code != NRF_SUCCESS) {
