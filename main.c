@@ -44,7 +44,7 @@
  * @ingroup ble_sdk_app_hids_mouse
  * @brief HID Mouse Sample Application main file.
  *
- * This file contains is the source code for a sample application using the HID, Battery and Device
+ * This file contains the source code for a sample application using the HID, Battery and Device
  * Information Service for implementing a simple mouse functionality. This application uses the
  * @ref app_scheduler.
  *

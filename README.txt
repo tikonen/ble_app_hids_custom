@@ -1,3 +1,9 @@
+Sample application using the HID, Battery and Device Information Service
+ for implementing a simple mouse functionality. Alternatively it supports 
+custom hid device mode that demonstrates how to read a external sensor 
+over I2C and report the results as custom HID reports. Implementation also 
+supports outgoing (from host to device) reports that can be used to 
+command the device.
 
 Environment:
 	Built at nRF5_SDK_15.3.0_59ac345\examples\ble_peripheral
